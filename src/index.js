@@ -1,14 +1,11 @@
 import reportWebVitals from './reportWebVitals';
-import state, { subscribe } from './redux/state';
+import store from './redux/state';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import { addPost } from './redux/state';
-import { updateNewPostText } from './redux/state'
-import { addMessage } from './redux/state'
-import { updateNewMessageText } from './redux/state'
+
 
 
 
@@ -19,20 +16,20 @@ let rerenderEntireTree = (state) => {
         <BrowserRouter>
             <React.StrictMode>
                 <App
-                    state={state}
-                    posts={state.profilePage.posts}
-                    newPostText={state.profilePage.newPostText}
-                    addPost={addPost}
-                    updateNewPostText={updateNewPostText}
+                    state={store.getState()}
+                    posts={store.getState().profilePage.posts}
+                    newPostText={store.getState().profilePage.newPostText}
+                    addPost={store.addPost.bind(store)}
+                    updateNewPostText={store.updateNewPostText.bind(store)}
 
-                    dialogs={state.dialogsPage.dialogs}
-                    newMessageText={state.dialogsPage.newMessageText}
-                    messages={state.dialogsPage.messages}
-                    addMessage={addMessage}
-                    updateNewMessageText={updateNewMessageText}
+                    dialogs={store.getState().dialogsPage.dialogs}
+                    newMessageText={store.getState().dialogsPage.newMessageText}
+                    messages={store.getState().dialogsPage.messages}
+                    addMessage={store.addMessage.bind(store)}
+                    updateNewMessageText={store.updateNewMessageText.bind(store)}
 
 
-                    friends={state.sideBarPage.friends}
+                    friends={store.getState().sideBarPage.friends}
 
                 />
             </React.StrictMode>
@@ -41,9 +38,9 @@ let rerenderEntireTree = (state) => {
 }
 
 
-rerenderEntireTree(state);
+rerenderEntireTree(store.getState());
 
-subscribe(rerenderEntireTree);
+store.subscribe(rerenderEntireTree);
 
 
 
