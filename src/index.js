@@ -19,14 +19,11 @@ let rerenderEntireTree = (state) => {
                     state={store.getState()}
                     posts={store.getState().profilePage.posts}
                     newPostText={store.getState().profilePage.newPostText}
-                    addPost={store.addPost.bind(store)}
-                    updateNewPostText={store.updateNewPostText.bind(store)}
+                    dispatch={store.dispatch.bind(store)}
 
                     dialogs={store.getState().dialogsPage.dialogs}
                     newMessageText={store.getState().dialogsPage.newMessageText}
                     messages={store.getState().dialogsPage.messages}
-                    addMessage={store.addMessage.bind(store)}
-                    updateNewMessageText={store.updateNewMessageText.bind(store)}
 
 
                     friends={store.getState().sideBarPage.friends}
