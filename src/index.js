@@ -26,7 +26,7 @@ let rerenderEntireTree = (state) => {
                     messages={store.getState().dialogsPage.messages}
 
 
-                    friends={store.getState().sideBarPage.friends}
+                    friends={store.getState().sidebar.friends}
 
                 />
             </React.StrictMode>

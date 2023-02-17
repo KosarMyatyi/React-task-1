@@ -2,8 +2,8 @@ import React from "react";
 import s from './MyDialogs.module.css';
 import DialogsItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import {sendMessageCreator} from './../../../redux/state'
-import {updateNewMessageBodyCreator} from './../../../redux/state'
+import {sendMessageCreator} from './../../../redux/dialogs-reduser'
+import {updateNewMessageBodyCreator} from './../../../redux/dialogs-reduser'
 
 const MyDialogs = (props) => {
     // props.dialogs.map(( d, index) => console.log(d, index))
