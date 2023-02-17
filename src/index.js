@@ -22,7 +22,7 @@ let rerenderEntireTree = (state) => {
                     dispatch={store.dispatch.bind(store)}
 
                     dialogs={store.getState().dialogsPage.dialogs}
-                    newMessageText={store.getState().dialogsPage.newMessageText}
+                    newMessageBody={store.getState().dialogsPage.newMessageBody}
                     messages={store.getState().dialogsPage.messages}
 
 

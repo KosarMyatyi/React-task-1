@@ -12,7 +12,7 @@ const Dialogs = (props) => {
             <MyDialogs
                 dispatch={props.dispatch}
                 message={props.message}
-                newMessageText={props.newMessageText}
+                newMessageBody={props.newMessageBody}
                 messages={props.messages}
                 dialogs={props.dialogs}
             />

@@ -25,7 +25,7 @@ const App = (props) => {
           messages={props.messages} 
           dialogs={props.dialogs} 
           dispatch={props.dispatch} 
-          newMessageText={props.newMessageText} 
+          newMessageBody={props.newMessageBody} 
           />} />
 
           <Route path="/friends/*" element={<Sidebar 
