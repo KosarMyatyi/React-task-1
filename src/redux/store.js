@@ -40,7 +40,7 @@ let store = {
                 { id: 1, name: 'Marya' },
                 { id: 2, name: 'Viktorya' },
                 { id: 3, name: 'Lyudmila' },
-            ]
+            ],
         },
     },
     _callSubscriber() {

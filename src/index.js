@@ -7,27 +7,14 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 
 
-
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let rerenderEntireTree = (state) => {
 
     root.render(
         <BrowserRouter>
             <React.StrictMode>
-                <App
-                    state={store.getState()}
-                    posts={store.getState().profilePage.posts}
-                    newPostText={store.getState().profilePage.newPostText}
-                    dispatch={store.dispatch.bind(store)}
-
-                    dialogs={store.getState().dialogsPage.dialogs}
-                    newMessageBody={store.getState().dialogsPage.newMessageBody}
-                    messages={store.getState().dialogsPage.messages}
-
-
+                <App state={state} dispatch={store.dispatch.bind(store)} store={store} 
                     friends={store.getState().sidebar.friends}
-
                 />
             </React.StrictMode>
         </BrowserRouter>
@@ -37,7 +24,10 @@ let rerenderEntireTree = (state) => {
 
 rerenderEntireTree(store.getState());
 
-store.subscribe(rerenderEntireTree);
+store.subscribe(() => {
+    let state = store.getState();
+    rerenderEntireTree(state);
+});
 
 
 
