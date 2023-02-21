@@ -20,20 +20,20 @@ const profileReducer = (state = initialState, action) => {
                 message: state.newPostText,
                 likesCount: 0,
             };
-
-            state.posts.push(newPost);
-            state.newPostText = '';
-            return state;
+            return {
+                ...state,
+                posts: [...state.posts, newPost],
+                newPostText: '',
+            };
         case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.newText;
-            return state;
-        case !state.newPostText.length:
-            return;
+            return {
+                ...state,
+                newPostText: action.newText,
+            }
         default:
             return state;
     }
-
-}
+};
 
 export const addPostActionCreator = () => ({ type: 'ADD-POST' });
 export const updateNewPostTextActionCreator = (text) =>
