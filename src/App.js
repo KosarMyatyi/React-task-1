@@ -6,6 +6,7 @@ import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import Sidebar from './components/Navbar/Sidebar/Sidebar';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
+import UsersContainer from './components/Users/UsersContainer';
 
 const App = (props) => {
 
@@ -18,6 +19,8 @@ const App = (props) => {
           <Route path="/profile/*" element={<Profile />} />
 
           <Route path="/dialogs/*" element={<DialogsContainer />} />
+
+          <Route path="/users/*" element={<UsersContainer />} />
 
           <Route path="/friends/*" element={<Sidebar friends={props.friends} />} />
         </Routes>
