@@ -16,13 +16,14 @@ const App = (props) => {
       <Navbar />
       <div className='app-wrapper-content'>
         <Routes>
-          <Route path="/profile/*" element={<ProfileContainer />} />
 
-          <Route path="/dialogs/*" element={<DialogsContainer />} />
+          <Route path="/profile/:userId?" element={<ProfileContainer />} />
 
-          <Route path="/users/*" element={<UsersContainer />} />
+          <Route path="/dialogs/" element={<DialogsContainer />} />
 
-          <Route path="/friends/*" element={<Sidebar friends={props.friends} />} />
+          <Route path="/users/" element={<UsersContainer />} />
+
+          <Route path="/friends/" element={<Sidebar friends={props.friends} />} />
         </Routes>
       </div>
     </div>
