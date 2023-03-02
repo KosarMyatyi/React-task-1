@@ -35,7 +35,7 @@ const profileReducer = (state = initialState, action) => {
                 newPostText: action.newText,
             }
         case SET_USER_PROFILE:
-            return { ...state, profile: action.profile }
+            return { ...state, profile: action.userId }
         default:
             return state;
     }
@@ -48,6 +48,7 @@ export const setUserProfile = (userId) => ({ type: SET_USER_PROFILE, userId });
 
 export const getUserProfile = (userId) => (dispatch) => {
     usersAPI.getProfile(userId).then(response => {
+
         dispatch(setUserProfile(response.data));
     });
 } 
