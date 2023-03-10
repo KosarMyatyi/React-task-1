@@ -1,10 +1,13 @@
-export const getUsersPage = (state) => {
-    return state.usersPage.users.filter(u => true);
+import { createSelector } from "reselect";
+
+const getUsersSelector = (state) => {
+    return state.usersPage.users;
 }
 
-/*export const getTempSavedUsers = (state) => {
-    return state.usersPage.users.filter(u => true // that are in tempsavedArray);
-}*/
+export const getUsersPage = createSelector(getUsersSelector,
+    (users) => {
+    return users.filter(u => true);
+})
 
 export const getPageSize = (state) => {
     return state.usersPage.pageSize;
